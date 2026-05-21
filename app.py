@@ -316,7 +316,7 @@ with st.sidebar:
     # API key status
     api_key_ok = bool(st.secrets["GEMINI_API_KEY"].strip())
     if api_key_ok:
-        st.success(" ", icon=None)
+        st.success("API LOADED", icon=None)
     else:
         st.error(
             "**GEMINI_API_KEY not set**\n\n"
