@@ -90,6 +90,9 @@ class LLMReviewer:
     def __init__(self, model_name: str = _DEFAULT_MODEL) -> None:
         api_key = st.secrets["GEMINI_API_KEY"].strip()
         genai.configure(api_key=api_key)
+
+        self.client = genai.GenerativeModel(self.model_name)
+       
         if not api_key:
             raise ValueError(
                 "GEMINI_API_KEY not found. "
