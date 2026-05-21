@@ -91,7 +91,8 @@ class LLMReviewer:
         api_key = st.secrets["GEMINI_API_KEY"].strip()
         genai.configure(api_key=api_key)
 
-        self.client = genai.GenerativeModel(self.model_name)
+        
+        self.client = genai.GenerativeModel("gemini-2.5-flash")
        
         if not api_key:
             raise ValueError(
