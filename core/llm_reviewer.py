@@ -17,7 +17,7 @@ from schemas.review_schema import ReviewResponse
 load_dotenv()
 
 # constants
-_DEFAULT_MODEL    = genai.GenerativeModel("gemini-2.5-flash")#"gemini-2.5-flash"
+_DEFAULT_MODEL    ="gemini-2.5-flash"#"gemini-2.5-flash"
 _MAX_RETRIES      = 3
 _RETRY_DELAY      = 2    
 _RATE_LIMIT_PAUSE = 65   
@@ -100,7 +100,7 @@ class LLMReviewer:
                 "Add it to your .env file or set it as an environment variable."
             )
        
-        self.model_name   = model_name
+        #self.model_name   = model_name
         self.quota_exhausted: bool = False
 
     # prompt 
@@ -147,9 +147,10 @@ class LLMReviewer:
 
         for attempt in range(1, _MAX_RETRIES + 1):
             try:
-                resp    = self.client.models.generate_content(
-                    model=self.model_name, contents=prompt
-                )
+                resp = self.client.generate_content(prompt,generation_config=genai.GenerationConfig(temperature=0.2,
+        response_mime_type="application/json"
+    )
+)
                 cleaned = self._clean(resp.text)
                 parsed  = json.loads(cleaned)
                 validated = ReviewResponse(**parsed)
