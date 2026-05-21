@@ -9,7 +9,7 @@ import time
 from typing import Any
 
 from dotenv import load_dotenv
-from google import genai
+import google.generativeai as genai
 from pydantic import ValidationError
 
 from schemas.review_schema import ReviewResponse
@@ -17,7 +17,7 @@ from schemas.review_schema import ReviewResponse
 load_dotenv()
 
 # constants
-_DEFAULT_MODEL    = "gemini-2.5-flash"
+_DEFAULT_MODEL    = genai.GenerativeModel("gemini-2.5-flash")#"gemini-2.5-flash"
 _MAX_RETRIES      = 3
 _RETRY_DELAY      = 2    
 _RATE_LIMIT_PAUSE = 65   
@@ -89,6 +89,7 @@ class LLMReviewer:
 
     def __init__(self, model_name: str = _DEFAULT_MODEL) -> None:
         api_key = st.secrets["GEMINI_API_KEY"].strip()
+        genai.configure(api_key=api_key)
         if not api_key:
             raise ValueError(
                 "GEMINI_API_KEY not found. "
