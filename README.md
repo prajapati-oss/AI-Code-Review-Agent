@@ -1,6 +1,8 @@
 # 🔍 AI Code Review Agent
 
-> An autonomous, agentic AI pipeline that clones a GitHub repository, parses Python source files with AST, submits every function to Google Gemini for review, and presents confidence-rated, severity-bucketed findings in a live Streamlit dashboard.
+
+deployement url:https://ai-code-review-agent-dqgvpykrbfkaxuhtcbzbje.streamlit.app/
+git hub repo url:https://github.com/prajapati-oss/AI-Code-Review-Agent.git
 
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.35%2B-FF4B4B?logo=streamlit)](https://streamlit.io)
@@ -43,7 +45,7 @@ The key innovation is **epistemic humility** — low-confidence findings (score 
 
 ## Live Demo
 
-> **Deployed URL:** `https://your-app.streamlit.app` ← replace with your Streamlit Cloud URL after deployment
+> **Deployed URL:** `https://ai-code-review-agent-dqgvpykrbfkaxuhtcbzbje.streamlit.app/` ← replace with your Streamlit Cloud URL after deployment
 
 ---
 
