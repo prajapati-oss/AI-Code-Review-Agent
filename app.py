@@ -459,17 +459,17 @@ if run_btn:
                 )
             except QuotaExhaustedError:
                 quota_hit = True
-                # st.error(
-                #     "**&#x1F6AB; Gemini Daily Quota Exhausted**\n\n"
-                #     "The Gemini free tier allows **20 API requests/day** per project.\n"
-                #     "Results below reflect functions reviewed **before** the limit was reached.\n\n"
-                #     "**How to fix:**\n"
-                #     "- &#x1F4B3; [Upgrade at aistudio.google.com](https://aistudio.google.com/plan_information)\n"
-                #     "- &#x23F0; Wait until **midnight UTC** (free quota resets daily)\n"
-                #     "- &#x1F511; Use a different GCP project (each gets its own 20 req/day)\n"
-                #     "- &#x2699;&#xFE0F; Reduce **File limit** in sidebar to ≤ 5"
-                # )
-                #break
+                st.error(
+                    "**&#x1F6AB; Gemini Daily Quota Exhausted**\n\n"
+                    "The Gemini free tier allows **20 API requests/day** per project.\n"
+                    "Results below reflect functions reviewed **before** the limit was reached.\n\n"
+                    "**How to fix:**\n"
+                    "- &#x1F4B3; [Upgrade at aistudio.google.com](https://aistudio.google.com/plan_information)\n"
+                    "- &#x23F0; Wait until **midnight UTC** (free quota resets daily)\n"
+                    "- &#x1F511; Use a different GCP project (each gets its own 20 req/day)\n"
+                    "- &#x2699;&#xFE0F; Reduce **File limit** in sidebar to ≤ 5"
+                )
+                break
 
             if review["success"]:
                 processed = ConfidenceEngine.process_reviews(review["data"])
