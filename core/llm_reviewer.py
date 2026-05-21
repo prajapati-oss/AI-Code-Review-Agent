@@ -99,7 +99,7 @@ class LLMReviewer:
                 "GEMINI_API_KEY not found. "
                 "Add it to your .env file or set it as an environment variable."
             )
-        self.client       = genai.Client(api_key=api_key)
+        genai.configure(api_key=api_key)
         self.model_name   = model_name
         self.quota_exhausted: bool = False
 
